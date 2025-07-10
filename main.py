@@ -16,8 +16,9 @@ log_file = open("test_log.txt", "w", encoding="utf-8")
 test_result = {"test_steps": []}
 
 def log_message(message):
-    print(message)  # แสดงผลใน Console
-    log_file.write(message + "\n")  # บันทึกลงไฟล์
+    print(message)
+    with open("test_log.txt", "a", encoding="utf-8") as log_file:
+        log_file.write(message + "\n")  # บันทึกลงไฟล์
     test_result["test_steps"].append(message)  # เก็บข้อมูลไว้ใน JSON
 
 # เริ่มต้น WebDriver
